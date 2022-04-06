@@ -1,5 +1,5 @@
 # Define the base linux distribution.
-FROM alpine:latest
+FROM alpine:3.15.4
 
 # Define the maintainer of the project.
 LABEL maintainer="fvilarinho@gmail.com"
