@@ -27,7 +27,7 @@ Environments variables needed in this phase:
 - `SONAR_TOKEN`: API Key used by Sonar client to store the generated analysis.
 - `SONAR_ORGANIZATION`: Identifier of the Sonar account.
 - `SONAR_PROJECT_KEY`: Identifier of the Sonar project.
-- `SONAR_URL`: URL of the Sonard server.
+- `SONAR_URL`: URL of the Sonar server.
 
 ### Libraries Analysis - White-box testing (SAST)
 All commands of this phase are defined in `librariesAnalysis.sh` file. 
