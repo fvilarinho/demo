@@ -25,6 +25,9 @@ The tools used are:
 Environments variables needed in this phase:
 - `GITHUB_TOKEN`: API Key used by Sonar client to communicate with GitHub.
 - `SONAR_TOKEN`: API Key used by Sonar client to store the generated analysis.
+- `SONAR_ORGANIZATION`: Identifier of the Sonar account.
+- `SONAR_PROJECT_KEY`: Identifier of the Sonar project.
+- `SONAR_URL`: URL of the Sonard server.
 
 ### Libraries Analysis - White-box testing (SAST)
 All commands of this phase are defined in `librariesAnalysis.sh` file. 
