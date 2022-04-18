@@ -87,6 +87,7 @@ jobs:
         DIGITALOCEAN_SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
         LINODE_TOKEN: ${{ secrets.LINODE_TOKEN }}
         LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
+        K3S_TOKEN: ${{ secrets.K3S_TOKEN }}
         TERRAFORM_TOKEN: ${{ secrets.TERRAFORM_TOKEN }}
         DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
       run: ./deploy.sh
