@@ -35,14 +35,14 @@ jobs:
     - name: 6. Compile, Build and Test
       run: ./build.sh
 
-#    - name: 7. Code Analysis - White-box testing (SAST)
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-#        SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        SONAR_URL: ${{ secrets.SONAR_URL }}
-#      run: ./codeAnalysis.sh
+    - name: 7. Code Analysis - White-box testing (SAST)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_URL }}
+      run: ./codeAnalysis.sh
 
 #    - name: 8. Code Analysis - Quality Gate Checking
 #      uses: jkumar19/sonar-build-breaker@v1.0.0
