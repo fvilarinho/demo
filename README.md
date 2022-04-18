@@ -85,14 +85,16 @@ The tools/services used are:
 - [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/) - Kubernetes Orchestration tool. 
 - [`Portainer`](https://portainer.io) - Kubernetes Orchestration UI.
 - [`Digitalocean`](https://www.digitalocean.com) - Cloud provider where the infrastructure will be provisioned.
+- [`Linode`](https://www.linode.com) - Cloud provider where the infrastructure will be provisioned.
 - [`Datadog Agent`](https://www.datadoghq.com) - Monitoring agent.
 
 Environments variables needed in this phase:
 - `REPOSITORY_URL`: URL of the repository of packages.
 - `REPOSITORY_ID`: Identifier of the packages in the repository.
-- `DIGITALOCEAN_PRIVATE_KEY`: Private key used to authenticate in the infrastructure.
-- `DIGITALOCEAN_PUBLIC_KEY`: Public key used to be installed in the infrastructure.
-- `DIGITALOCEAN_TOKEN`: Token used to authenticate in the Cloud provider platform.
+- `DIGITALOCEAN_TOKEN`: Token used to authenticate in the Digitalocean platform.
+- `DIGITALOCEAN_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
+- `LINODE_TOKEN`: Token used to authenticate in the Linode platform.
+- `LINODE_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
 - `TERRAFORM_TOKEN`: Token used to authenticate in the Terraform platform.
 - `DATADOG_AGENT_KEY`: API key used to authenticate in the monitoring platform.
 
