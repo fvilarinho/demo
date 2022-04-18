@@ -14,7 +14,6 @@ sonarqube {
 		property "sonar.projectKey", System.getenv("SONAR_PROJECT_KEY")
 		property "sonar.host.url", System.getenv("SONAR_URL")
 		property "sonar.sources", "src/main/java,src/main/webapp,src/main/resources/static"
-		property 'sonar.exclusions', "**/ServletInitializer*"
 		property 'sonar.exclusions', ["**/ServletInitializer*", "**/DemoApplication*"]
 		property 'sonar.coverage.exclusions', ["**/ServletInitializer*", "**/DemoApplication*"]
 	}
@@ -22,7 +21,6 @@ sonarqube {
 
 // Build attributes.
 group = "br.com.demo"
-//version = System.getenv("BUILD_VERSION")
 
 // Default dependencies repository.
 repositories {
