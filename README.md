@@ -110,14 +110,14 @@ Architecture
 ------------
 The application uses:
 - [`Java 11`](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html) - Programming Language.
-- [`Spring Boot 2.5.4`](https://spring.io) - Development Framework.
+- [`Spring Boot 2.6.6`](https://spring.io) - Development Framework.
 - [`Gradle 6.8.3`](https://www.gradle.org) - Automation build tool.
 - [`Mockito 3`](https://site.mockito.org/) - Test framework.
 - [`JUnit 5`](https://junit.org/junit5/) - Test framework.
 - [`MariaDB`](https://mariadb.com/) - Database server.
 - [`NGINX 1.18`](https://www.nginx.com/****) - Web server.
-- [`Docker 20.10.8`](https://www.docker.com) - Containerization tool.
-- [`K3S 1.21.4`](https://k3s.io/) - Containerization tool.
+- [`Docker 20.10.14`](https://www.docker.com) - Containerization tool.
+- [`K3S 1.21.7`](https://k3s.io/) - Containerization tool.
 
 For further documentation please check the documentation of each tool/service.
 
