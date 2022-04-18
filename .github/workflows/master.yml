@@ -44,6 +44,7 @@ jobs:
         SONAR_URL: ${{ secrets.SONAR_URL }}
       run: ./codeAnalysis.sh
 
+
 #    - name: 8. Code Analysis - Quality Gate Checking
 #      uses: jkumar19/sonar-build-breaker@v1.0.0
 #      with:
