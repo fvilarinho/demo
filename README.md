@@ -95,6 +95,7 @@ Environments variables needed in this phase:
 - `DIGITALOCEAN_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
 - `LINODE_TOKEN`: Token used to authenticate in the Linode platform.
 - `LINODE_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
+- `K3S_TOKEN`: Token used by the Kubernetes cluster.
 - `TERRAFORM_TOKEN`: Token used to authenticate in the Terraform platform.
 - `DATADOG_AGENT_KEY`: API key used to authenticate in the monitoring platform.
 
