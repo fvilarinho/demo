@@ -27,7 +27,7 @@ RUN apk update && \
 # Copy the essentials files to the work directory.
 COPY bin/startup.sh ${BIN_DIR}
 COPY build/libs/backend.war ${LIB_DIR}/demo.war
-COPY etc/contrast_security.yaml ${ETC_DIR}
+#COPY etc/contrast_security.yaml ${ETC_DIR}
 
 # Set the essentials permissions.
 RUN chown -R user:group ${HOME_DIR} && \
