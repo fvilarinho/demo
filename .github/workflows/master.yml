@@ -18,14 +18,14 @@ jobs:
       with:
         fetch-depth: 0
 
-#    - name: 2. Set up Snyk client
-#      uses: snyk/actions/setup@master
-#
-#    - name: 3. Set up Terraform client
-#      run: wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip; unzip terraform_1.0.8_linux_amd64.zip; mv terraform ./iac; chmod +x ./iac/terraform; rm terraform_1.0.8_linux_amd64.zip;
-#
-#    - name: 4. Set up Kubernetes client
-#      run: curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"; mv kubectl.sha256 ./iac/kubectl; chmod +x ./iac/kubectl;
+    - name: 2. Set up Snyk client
+      uses: snyk/actions/setup@master
+
+    - name: 3. Set up Terraform client
+      run: wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip; unzip terraform_1.0.8_linux_amd64.zip; mv terraform ./iac; chmod +x ./iac/terraform; rm terraform_1.0.8_linux_amd64.zip;
+
+    - name: 4. Set up Kubernetes client
+      run: curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"; mv kubectl.sha256 ./iac/kubectl; chmod +x ./iac/kubectl;
 
     - name: 5. Set up Compile, Build and Test environment
       uses: actions/setup-java@v1
@@ -43,29 +43,29 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_URL: ${{ secrets.SONAR_URL }}
       run: ./codeAnalysis.sh
-#
-#    - name: 8. Code Analysis - Quality Gate Checking
-#      uses: jkumar19/sonar-build-breaker@v1.0.0
-#      with:
-#        sonar_branch: master
-#        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
-#        sonar_token: ${{ secrets.SONAR_TOKEN }}
-#        sonar_url: ${{ secrets.SONAR_URL }}
-#
+
+    - name: 8. Code Analysis - Quality Gate Checking
+      uses: jkumar19/sonar-build-breaker@v1.0.0
+      with:
+        sonar_branch: master
+        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
+        sonar_token: ${{ secrets.SONAR_TOKEN }}
+        sonar_url: ${{ secrets.SONAR_URL }}
+
 #    - name: 9. Libraries Analysis - White-box testing (SAST)
 #      env:
 #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 #      run: ./librariesAnalysis.sh
-#
-#    - name: 10. Packaging
-#      env:
-#        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-#        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-#        CONTRAST_API_KEY: ${{ secrets.CONTRAST_API_KEY }}
-#        CONTRAST_SERVICE_KEY: ${{ secrets.CONTRAST_SERVICE_KEY }}
-#        CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
-#      run: ./package.sh
-#
+
+    - name: 10. Packaging
+      env:
+        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
+        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
+        CONTRAST_API_KEY: ${{ secrets.CONTRAST_API_KEY }}
+        CONTRAST_SERVICE_KEY: ${{ secrets.CONTRAST_SERVICE_KEY }}
+        CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
+      run: ./package.sh
+
 #    - name: 11. Package Analysis - White-box testing (SAST)
 #      env:
 #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -89,4 +89,4 @@ jobs:
 #        TERRAFORM_TOKEN: ${{ secrets.TERRAFORM_TOKEN }}
 #        DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
 #      run: ./deploy.sh
-
+#
