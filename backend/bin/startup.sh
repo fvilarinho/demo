@@ -12,7 +12,7 @@ while [ true ]; do
 done
 
 # Set debug and RASP environment variables.
-export JAVA_OPTS="$JAVA_OPTS -javaagent:$LIB_DIR/contrast.jar -Dcontrast.config.path=$ETC_DIR/contrast_security.yaml"
+#export JAVA_OPTS="$JAVA_OPTS -javaagent:$LIB_DIR/contrast.jar -Dcontrast.config.path=$ETC_DIR/contrast_security.yaml"
 export JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8000"
 export SERVER_SERVLET_CONTEXT_PATH=/demo
 
