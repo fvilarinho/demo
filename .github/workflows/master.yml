@@ -71,13 +71,13 @@ jobs:
 #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 #      run: ./packageAnalysis.sh
 
-#    - name: 12. Publishing
-#      env:
-#        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-#        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-#        REPOSITORY_USER: ${{ secrets.REPOSITORY_USER }}
-#        REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
-#      run: ./publish.sh
+    - name: 12. Publishing
+      env:
+        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
+        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
+        REPOSITORY_USER: ${{ secrets.REPOSITORY_USER }}
+        REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
+      run: ./publish.sh
 
 #    - name: 13. Deploy
 #      env:
