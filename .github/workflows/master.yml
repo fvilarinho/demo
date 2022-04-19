@@ -24,7 +24,7 @@ jobs:
     - name: 3. Set up Terraform client
       run: wget https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip; unzip terraform_1.0.8_linux_amd64.zip; mv terraform ./iac; chmod +x ./iac/terraform; rm terraform_1.0.8_linux_amd64.zip;
 
-#    - name: 4. Set up Kubernetes client
+    - name: 4. Set up Kubernetes client
       run: curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"; mv kubectl.sha256 ./iac/kubectl; chmod +x ./iac/kubectl;
 
     - name: 5. Set up Compile, Build and Test environment
