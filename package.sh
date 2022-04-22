@@ -26,3 +26,4 @@ docker save $REPOSITORY_ID/demo-frontend:latest -o /tmp/demo-frontend.tar
 
 # Clean temporary files.
 #rm $ETC_DIR/contrast_security.yaml
+
