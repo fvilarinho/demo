@@ -1,0 +1,58 @@
+name: Bug Fixes and Feature pipeline
+
+on:
+  push:
+    branches:
+      - "bugfix/*"
+      - "feature/*"
+    paths-ignore:
+      - "LICENSE"
+      - "*.md"
+
+jobs:
+  run:
+    name: Jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Set up Project Files
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      #      - name: 2. Set up Snyk client
+      #        uses: snyk/actions/setup@master
+
+      - name: 3. Set up Compile, Build and Test environment
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: 4. Code Analysis - White-box testing (SAST)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_URL: ${{ secrets.SONAR_URL }}
+        run: ./codeAnalysis.sh
+
+      #    - name: 5. Code Analysis - Quality Gate Checking
+      #      uses: jkumar19/sonar-build-breaker@v1.0.0
+      #      with:
+      #        sonar_branch: master
+      #        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
+      #        sonar_token: ${{ secrets.SONAR_TOKEN }}
+      #        sonar_url: ${{ secrets.SONAR_URL }}
+
+      #    - name: 6. Libraries Analysis - White-box testing (SAST)
+      #      env:
+      #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #      run: ./librariesAnalysis.sh
+
+      #    - name: 8. Package Analysis - White-box testing (SAST)
+      #      env:
+      #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #      run: ./packageAnalysis.sh
+      #
+
+
