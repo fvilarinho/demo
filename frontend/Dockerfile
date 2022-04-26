@@ -1,5 +1,5 @@
 # Define the base linux distribution.
-FROM ubuntu/nginx:latest
+FROM ubuntu:latest
 
 # Define the maintainer of the project.
 #LABEL maintainer="fvilarinho@gmail.com"
