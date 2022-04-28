@@ -43,7 +43,7 @@ resource "digitalocean_droplet" "cluster-manager" {
   provisioner "remote-exec" {
     inline = [
       "hostnamectl set-hostname cluster-manager",
-      "apt -y update ; sleep 5 ; apt -y upgrade",
+      "apt -y update ; pkill -9 dpkg ;  pkill -9 apt ; apt -y upgrade",
       "apt -y install curl wget htop unzip dnsutils",
       "export K3S_TOKEN=${var.k3s_token}",
       "curl -sfL https://get.k3s.io | sh -",
@@ -77,7 +77,7 @@ resource "linode_instance" "cluster-worker" {
   provisioner "remote-exec" {
     inline = [
       "hostnamectl set-hostname cluster-worker",
-      "apt -y update ; sleep 5 ; apt -y upgrade",
+      "apt -y update ; pkill -9 dpkg ;  pkill -9 apt ; apt -y upgrade",
       "apt -y install curl wget htop unzip dnsutils",
       "export K3S_URL=https://${digitalocean_droplet.cluster-manager.ipv4_address}:6443",
       "export K3S_TOKEN=${var.k3s_token}",
