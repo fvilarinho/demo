@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Define packaging environment.
-#export ETC_DIR=./backend/etc
+export ETC_DIR=./backend/etc
 
 # Define RASP configuration.
-#cp $ETC_DIR/contrast_security.yaml.template $ETC_DIR/contrast_security.yaml
+cp $ETC_DIR/contrast_security.yaml.template $ETC_DIR/contrast_security.yaml
 
-#sed -i -e 's|${CONTRAST_API_KEY}|'"$CONTRAST_API_KEY"'|g' $ETC_DIR/contrast_security.yaml
-#sed -i -e 's|${CONTRAST_SERVICE_KEY}|'"$CONTRAST_SERVICE_KEY"'|g' $ETC_DIR/contrast_security.yaml
-#sed -i -e 's|${CONTRAST_USER_NAME}|'"$CONTRAST_USER_NAME"'|g' $ETC_DIR/contrast_security.yaml
+sed -i -e 's|${CONTRAST_API_KEY}|'"$CONTRAST_API_KEY"'|g' $ETC_DIR/contrast_security.yaml
+sed -i -e 's|${CONTRAST_SERVICE_KEY}|'"$CONTRAST_SERVICE_KEY"'|g' $ETC_DIR/contrast_security.yaml
+sed -i -e 's|${CONTRAST_USER_NAME}|'"$CONTRAST_USER_NAME"'|g' $ETC_DIR/contrast_security.yaml
 
 # Define packaging environment.
 echo "REPOSITORY_URL=$REPOSITORY_URL" > ./iac/.env
@@ -25,4 +25,4 @@ docker save $REPOSITORY_ID/demo-backend:latest -o /tmp/demo-backend.tar
 docker save $REPOSITORY_ID/demo-frontend:latest -o /tmp/demo-frontend.tar
 
 # Clean temporary files.
-#rm $ETC_DIR/contrast_security.yaml
+rm $ETC_DIR/contrast_security.yaml
