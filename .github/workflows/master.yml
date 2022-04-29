@@ -35,27 +35,27 @@ jobs:
     - name: 6. Compile, Build and Test
       run: ./build.sh
 
-#    - name: 7. Code Analysis - White-box testing (SAST)
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-#        SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        SONAR_URL: ${{ secrets.SONAR_URL }}
-#      run: ./codeAnalysis.sh
+    - name: 7. Code Analysis - White-box testing (SAST)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_URL }}
+      run: ./codeAnalysis.sh
 
-#    - name: 8. Code Analysis - Quality Gate Checking
-#      uses: jkumar19/sonar-build-breaker@v1.0.0
-#      with:
-#        sonar_branch: master
-#        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
-#        sonar_token: ${{ secrets.SONAR_TOKEN }}
-#        sonar_url: ${{ secrets.SONAR_URL }}
+    - name: 8. Code Analysis - Quality Gate Checking
+      uses: jkumar19/sonar-build-breaker@v1.0.0
+      with:
+        sonar_branch: master
+        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
+        sonar_token: ${{ secrets.SONAR_TOKEN }}
+        sonar_url: ${{ secrets.SONAR_URL }}
 
-#    - name: 9. Libraries Analysis - White-box testing (SAST)
-#      env:
-#        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#      run: ./librariesAnalysis.sh
+    - name: 9. Libraries Analysis - White-box testing (SAST)
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      run: ./librariesAnalysis.sh
       
     - name: 10. Packaging
       env:
@@ -66,10 +66,10 @@ jobs:
         CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
       run: ./package.sh
 
-#    - name: 11. Package Analysis - White-box testing (SAST)
-#      env:
-#        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#      run: ./packageAnalysis.sh
+    - name: 11. Package Analysis - White-box testing (SAST)
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      run: ./packageAnalysis.sh
 
     - name: 12. Publishing
       env:
@@ -89,5 +89,5 @@ jobs:
         LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
         K3S_TOKEN: ${{ secrets.K3S_TOKEN }}
         TERRAFORM_TOKEN: ${{ secrets.TERRAFORM_TOKEN }}
-#        DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
+        DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
       run: ./deploy.sh
