@@ -77,7 +77,7 @@ Environments variables needed in this phase:
 - `REPOSITORY_USER`: Username of the repository of packages.
 - `REPOSITORY_PASSWORD`: Password of the repository of packages.
 
-### 7. Deploy
+### Deploy
 All commands of this phase are defined in `deploy.sh` file.
 It deploys the package in a K3S (Kubernetes) cluster.
 The tools/services used are:
