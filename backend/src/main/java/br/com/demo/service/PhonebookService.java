@@ -32,16 +32,6 @@ public class PhonebookService{
         this.persistence = persistence;
     }
 
-    public void test(){
-        String t = null;
-
-        if(t.equals("teste")){
-            System.out.println("Teste");
-        }
-
-        int x = (int)Math.random() * 1000;
-    }
-
     // List all data.
     public List<Phonebook> list(){
         return persistence.findAll();
