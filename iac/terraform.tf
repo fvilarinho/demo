@@ -24,7 +24,7 @@ data "linode_sshkey" "default" {
 resource "linode_instance" "cluster-manager" {
   label           = "cluster-manager"
   image           = "linode/debian10"
-  region          = "eu-central"
+  region          = "us-east"
   type            = "g6-standard-2"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
 
