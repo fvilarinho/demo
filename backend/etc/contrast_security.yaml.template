@@ -1,7 +1,0 @@
-api: 
-  url: https://ce.contrastsecurity.com/Contrast
-  api_key: ${CONTRAST_API_KEY}
-  service_key: ${CONTRAST_SERVICE_KEY}
-  user_name: ${CONTRAST_USER_NAME}
-protect:
-  enable: true

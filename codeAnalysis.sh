@@ -2,4 +2,3 @@
 
 # Execute code analysis with Sonar.
 ./gradlew sonarqube
-

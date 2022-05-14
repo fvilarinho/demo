@@ -61,9 +61,6 @@ jobs:
       env:
         REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
         REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-        CONTRAST_API_KEY: ${{ secrets.CONTRAST_API_KEY }}
-        CONTRAST_SERVICE_KEY: ${{ secrets.CONTRAST_SERVICE_KEY }}
-        CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
       run: ./package.sh
 
     - name: 11. Package Analysis - White-box testing (SAST)
@@ -83,8 +80,6 @@ jobs:
       env:
         REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
         REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-        DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
-        DIGITALOCEAN_SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
         LINODE_TOKEN: ${{ secrets.LINODE_TOKEN }}
         LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
         K3S_TOKEN: ${{ secrets.K3S_TOKEN }}
