@@ -43,7 +43,7 @@ RUN wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/7.2
 COPY bin/startup.sh ${BIN_DIR}
 COPY etc/my.cnf ${ETC_DIR}
 COPY etc/flyway.conf ${ETC_DIR}
-COPY sql/* ${SQL_DIR}
+COPY sql/* ${SQL_DIR}/
 
 # Set the startup.
 RUN chown -R user:group ${HOME_DIR} && \
