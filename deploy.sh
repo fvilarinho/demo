@@ -54,8 +54,8 @@ BACKEND_BUILD_VERSION=$(md5sum -b /tmp/demo-backend.tar | awk '{print $1}')
 FRONTEND_BUILD_VERSION=$(md5sum -b /tmp/demo-frontend.tar | awk '{print $1}')
 
 cp ./kubernetes.yml /tmp/kubernetes.yml
-sed -i -e 's|${REPOSITORY_URL}|'"$REPOSITORY_URL"'|g' /tmp/kubernetes.yml
-sed -i -e 's|${REPOSITORY_ID}|'"$REPOSITORY_ID"'|g' /tmp/kubernetes.yml
+sed -i -e 's|${DOCKER_REGISTRY_URL}|'"$DOCKER_REGISTRY_URL"'|g' /tmp/kubernetes.yml
+sed -i -e 's|${DOCKER_REGISTRY_ID}|'"$DOCKER_REGISTRY_ID"'|g' /tmp/kubernetes.yml
 sed -i -e 's|${DATABASE_BUILD_VERSION}|'"$DATABASE_BUILD_VERSION"'|g' /tmp/kubernetes.yml
 sed -i -e 's|${BACKEND_BUILD_VERSION}|'"$BACKEND_BUILD_VERSION"'|g' /tmp/kubernetes.yml
 sed -i -e 's|${FRONTEND_BUILD_VERSION}|'"$FRONTEND_BUILD_VERSION"'|g' /tmp/kubernetes.yml

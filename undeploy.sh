@@ -27,8 +27,6 @@ fi
 # Execute the provisioning based on the IaC definition file (terraform.tf).
 $TERRAFORM_CMD init --upgrade
 $TERRAFORM_CMD destroy -auto-approve \
-                       -var "digitalocean_token=$DIGITALOCEAN_TOKEN" \
-                       -var "digitalocean_ssh_key=$DIGITALOCEAN_SSH_KEY" \
                        -var "linode_token=$LINODE_TOKEN" \
                        -var "linode_ssh_key=$LINODE_SSH_KEY" \
                        -var "k3s_token=$K3S_TOKEN" \

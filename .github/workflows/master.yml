@@ -59,8 +59,8 @@ jobs:
       
     - name: 10. Packaging
       env:
-        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
+        DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
+        DOCKER_REGISTRY_ID: ${{ secrets.DOCKER_REGISTRY_ID }}
       run: ./package.sh
 
     - name: 11. Package Analysis - White-box testing (SAST)
@@ -70,16 +70,16 @@ jobs:
 
     - name: 12. Publishing
       env:
-        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-        REPOSITORY_USER: ${{ secrets.REPOSITORY_USER }}
-        REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
+        DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
+        DOCKER_REGISTRY_ID: ${{ secrets.DOCKER_REGISTRY_ID }}
+        DOCKER_REGISTRY_USER: ${{ secrets.DOCKER_REGISTRY_USER }}
+        DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
       run: ./publish.sh
 
     - name: 13. Deploy
       env:
-        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
+        DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
+        DOCKER_REGISTRY_ID: ${{ secrets.DOCKER_REGISTRY_ID }}
         LINODE_TOKEN: ${{ secrets.LINODE_TOKEN }}
         LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
         K3S_TOKEN: ${{ secrets.K3S_TOKEN }}

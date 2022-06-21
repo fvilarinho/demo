@@ -15,8 +15,8 @@ import java.util.List;
 @Repository
 public interface PhonebookPersistence extends JpaRepository<Phonebook, Integer>{
     // Find all items that contains part of the name.
-    public List<Phonebook> findByNameContaining(String name);
+    List<Phonebook> findByNameContaining(String name);
     
     // Find all items that contains the specified name.
-    public List<Phonebook> findByName(String name);
+    List<Phonebook> findByName(String name);
 }

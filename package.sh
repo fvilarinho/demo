@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define packaging environment.
-echo "REPOSITORY_URL=$REPOSITORY_URL" > ./iac/.env
-echo "REPOSITORY_ID=$REPOSITORY_ID" >> ./iac/.env
+echo "DOCKER_REGISTRY_URL=$DOCKER_REGISTRY_URL" > ./iac/.env
+echo "DOCKER_REGISTRY_ID=$DOCKER_REGISTRY_ID" >> ./iac/.env
 
 # Build docker images.
 docker-compose -f ./iac/docker-compose.yml build
@@ -10,6 +10,6 @@ docker-compose -f ./iac/docker-compose.yml build
 # Save images locally.
 rm -f /tmp/demo-*.tar
 
-docker save $REPOSITORY_URL/$REPOSITORY_ID/demo-database:latest -o /tmp/demo-database.tar
-docker save $REPOSITORY_URL/$REPOSITORY_ID/demo-backend:latest -o /tmp/demo-backend.tar
-docker save $REPOSITORY_URL/$REPOSITORY_ID/demo-frontend:latest -o /tmp/demo-frontend.tar
+docker save $DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_ID/demo-database:latest -o /tmp/demo-database.tar
+docker save $DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_ID/demo-backend:latest -o /tmp/demo-backend.tar
+docker save $DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_ID/demo-frontend:latest -o /tmp/demo-frontend.tar

@@ -16,4 +16,4 @@ done
 # Start the service
 echo "Service started!"
 
-nginx -g 'daemon off;'
+nginx -g "daemon off;"
