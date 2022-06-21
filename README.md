@@ -45,14 +45,10 @@ It encapsulates all binaries in a Docker image.
 Once the code and libraries were checked, it's time build the package to be used in the next phases.
 The tools/services used are:
 - [`Docker Compose`](https://docs.docker.com/compose) - Tool to build the images.
-- [`Contrast Security`](https://www.contrastsecurity.com) - RASP agent.
 
 Environments variables needed in this phase:
-- `REPOSITORY_URL`: URL of the repository of packages.
-- `REPOSITORY_ID`: Identifier of the packages in the repository.
-- `CONTRAST_API_KEY`: API Key used to authenticate in Contrast platform.
-- `CONTRAST_SERVICE_KEY`: RASP agent Key used by Contrast platform.
-- `CONTRAST_USER_NAME`: User name used to authenticate in Contrast platform.
+- `DOCKER_REGISTRY_URL`: URL of the repository of packages.
+- `DOCKER_REGISTRY_ID`: Identifier of the packages in the repository.
 
 ### Package Analysis - White-box testing (SAST)
 All commands of this phase are defined in `packageAnalysis.sh` file.
@@ -69,13 +65,14 @@ All commands of this phase are defined in `publish.sh` file.
 It publishes the package in the Docker registry (GitHub Packages).
 The tools/services used are:
 - [`Docker Compose`](https://docs.docker.com/compose) - Tool to push the images into the Docker registry.
-- [`Docker hub`](https://hub.docker.com) - Docker registry where the images are stored.
+- [`Github Packages`](https://github.com) - Docker registry where the images are stored.
+- 
 
 Environments variables needed in this phase:
-- `REPOSITORY_URL`: URL of the repository of packages.
-- `REPOSITORY_ID`: Identifier of the packages in the repository.
-- `REPOSITORY_USER`: Username of the repository of packages.
-- `REPOSITORY_PASSWORD`: Password of the repository of packages.
+- `DOCKER_REGISTRY_URL`: URL of the repository of packages.
+- `DOCKER_REGISTRY_ID`: Identifier of the packages in the repository.
+- `DOCKER_REGISTRY_USER`: Username of the repository of packages.
+- `DOCKER_REGISTRY_PASSWORD`: Password of the repository of packages.
 
 ### Deploy
 All commands of this phase are defined in `deploy.sh` file.
@@ -84,15 +81,12 @@ The tools/services used are:
 - [`Terraform`](https://terraform.io) - Infrastructure as a Code platform. 
 - [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/) - Kubernetes Orchestration tool. 
 - [`Portainer`](https://portainer.io) - Kubernetes Orchestration UI.
-- [`Digitalocean`](https://www.digitalocean.com) - Cloud provider where the infrastructure will be provisioned.
 - [`Linode`](https://www.linode.com) - Cloud provider where the infrastructure will be provisioned.
 - [`Datadog Agent`](https://www.datadoghq.com) - Monitoring agent.
 
 Environments variables needed in this phase:
-- `REPOSITORY_URL`: URL of the repository of packages.
-- `REPOSITORY_ID`: Identifier of the packages in the repository.
-- `DIGITALOCEAN_TOKEN`: Token used to authenticate in the Digitalocean platform.
-- `DIGITALOCEAN_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
+- `DOCKER_REGISTRY_URL`: URL of the repository of packages.
+- `DOCKER_REGISTRY_ID`: Identifier of the packages in the repository.
 - `LINODE_TOKEN`: Token used to authenticate in the Linode platform.
 - `LINODE_SSH_KEY`: Public key used to be installed in the provisioned infrastructure.
 - `K3S_TOKEN`: Token used by the Kubernetes cluster.
@@ -110,7 +104,7 @@ Architecture
 ------------
 The application uses:
 - [`Java 11`](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html) - Programming Language.
-- [`Spring Boot 2.6.6`](https://spring.io) - Development Framework.
+- [`Spring Boot 2.7.0`](https://spring.io) - Development Framework.
 - [`Gradle 6.8.3`](https://www.gradle.org) - Automation build tool.
 - [`Mockito 3`](https://site.mockito.org/) - Test framework.
 - [`JUnit 5`](https://junit.org/junit5/) - Test framework.
@@ -126,7 +120,7 @@ How to install
 1. Linux operating system.
 2. You need an IDE such as [IntelliJ](https://www.jetbrains.com/pt-br/idea).
 3. You need an account in the following services:
-`GitHub, Sonarcloud, Snyk`.
+`GitHub, Sonarcloud, Snyk, Linode and Terraform Cloud`.
 4. You need to set the environment variables described above in you system.
 5. The API Keys for each service must be defined in the UI of each service. Please refer the service documentation.
 6. Fork this project from GitHub.
@@ -136,7 +130,7 @@ How to install
 How to run it locally
 ------------------
 1. In the project directory, execute the scripts below:
-`./build.sh; ./package.sh; docker-compose up`
+`./build.sh; ./package.sh; docker-compose -f ./iac/docker-compose.yml up`
 2. Open the URL `http://localhost` in your preferred browser after the boot.
 
 How to run it in the cloud
@@ -147,11 +141,11 @@ How to run it in the cloud
 Other Resources
 ----------------
 - [Official Gradle documentation](https://docs.gradle.org)
-- [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.4/gradle-plugin/reference/html/)
-- [Spring Web](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-developing-web-applications)
-- [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-jpa-and-spring-data)
+- [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.0/gradle-plugin/reference/html/)
+- [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.0/reference/htmlsingle/#boot-features-developing-web-applications)
+- [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.0/reference/htmlsingle/#boot-features-jpa-and-spring-data)
 - [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-- [Accessing Data with JPA](https://spring.io/guides/gs/acce****ssing-data-jpa/)
+- [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
 All opinions and standard described here are my own.
 
