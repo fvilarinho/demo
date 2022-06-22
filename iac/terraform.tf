@@ -60,6 +60,7 @@ resource "linode_instance" "cluster-worker" {
   region          = "eu-central"
   type            = "g6-standard-2"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
+  depends_on      = [ linode_instance.cluster-manager ]
 
   provisioner "remote-exec" {
     inline = [
