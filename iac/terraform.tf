@@ -64,7 +64,7 @@ resource "linode_instance" "cluster-worker" {
 
   provisioner "remote-exec" {
     inline = [
-      "hostnamectl set-hostname cluster-manager",
+      "hostnamectl set-hostname cluster-worker",
       "apt -y update ; pkill -9 dpkg ;  pkill -9 apt ; apt -y upgrade",
       "apt -y install curl wget htop unzip dnsutils",
       "curl -sfL https://get.k3s.io | K3S_URL=https://${linode_instance.cluster-manager.ip_address}:6443 K3S_TOKEN=${var.k3s_token} sh -",
