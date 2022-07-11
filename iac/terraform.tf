@@ -35,7 +35,7 @@ resource "linode_instance" "cluster-manager" {
       "apt -y install curl wget htop unzip dnsutils",
       "export K3S_TOKEN=${var.k3s_token}",
       "curl -sfL https://get.k3s.io | sh -",
-      "kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer-lb.yaml",
+      "kubectl apply -n portainer -f https://downloads.portainer.io/ce2-14/portainer.yaml",
       "export DD_AGENT_MAJOR_VERSION=7",
       "export DD_API_KEY=${var.datadog_agent_key}",
       "export DD_SITE=datadoghq.com",
@@ -57,7 +57,7 @@ resource "linode_instance" "cluster-manager" {
 resource "linode_instance" "cluster-worker" {
   label           = "cluster-worker"
   image           = "linode/debian10"
-  region          = "eu-central"
+  region          = "us-east"
   type            = "g6-standard-2"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
   depends_on      = [ linode_instance.cluster-manager ]

@@ -13,7 +13,7 @@ done
 
 # Set debug mode.
 
-if [ "$DEBUG_MODE" -eq "true" ]; then
+if [ "$DEBUG_MODE" == "true" ]; then
   export JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8000"
 fi
 
