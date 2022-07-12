@@ -11,7 +11,7 @@ import javax.persistence.Id;
  * Class that defines the data model.
  *
  * @author fvilarinho
- * @version 1.0.0
+ * @version 1.1.0
  */
 @Entity(name = "phonebook")
 public class Phonebook{
