@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class Phonebook{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id = "1212122";
+    private Integer id = null;
     
     @Length(max = 1000)
     private String name = null;
