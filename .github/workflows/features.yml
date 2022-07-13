@@ -1,0 +1,27 @@
+name: Features pipeline
+
+on:
+  push:
+    branches:
+      - "feature/*"
+    paths-ignore:
+      - "LICENSE"
+      - "*.md"
+
+jobs:
+  run:
+    name: Jobs
+    runs-on: ubuntu-latest
+    steps:
+    - name: 1. Set up Project Files
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: 5. Set up Compile, Build and Test environment
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: 6. Compile, Build and Test
+      run: ./build.sh
