@@ -32,6 +32,13 @@ public class PhonebookService{
         this.persistence = persistence;
     }
 
+    public void helloWorld(){
+        String var = null;
+
+        if(var.equals("Teste"))
+            System.out.println("Passei por aqui!");
+    }
+
     // List all data.
     public List<Phonebook> list(){
         return persistence.findAll();
