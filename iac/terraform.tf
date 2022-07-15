@@ -25,7 +25,7 @@ resource "linode_instance" "cluster-manager" {
   label           = "cluster-manager"
   image           = "linode/debian10"
   region          = "us-east"
-  type            = "g6-standard-2"
+  type            = "g6-standard-4"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
 
   provisioner "remote-exec" {
@@ -57,7 +57,7 @@ resource "linode_instance" "cluster-manager" {
 resource "linode_instance" "cluster-worker" {
   label           = "cluster-worker"
   image           = "linode/debian10"
-  region          = "us-east"
+  region          = "eu-central"
   type            = "g6-standard-2"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
   depends_on      = [ linode_instance.cluster-manager ]
