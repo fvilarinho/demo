@@ -1,5 +1,5 @@
 # Define the base linux distribution.
-FROM alpine:latest
+FROM alpine:edge
 
 # Define the maintainer of the project.
 LABEL maintainer="fvilarinho@gmail.com"
@@ -19,6 +19,7 @@ RUN apk update && \
             mariadb-client \
             nss \
             openjdk11-jre
+
 
 # Install the required directories.
 RUN addgroup -S group && \
