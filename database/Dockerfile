@@ -18,8 +18,9 @@ RUN apk update && \
             mariadb \
             mariadb-client \
             nss \
-            openjdk11-jre
-
+            openjdk11-jre \
+            vim \
+            curl
 
 # Install the required directories.
 RUN addgroup -S group && \
