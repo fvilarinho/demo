@@ -58,7 +58,7 @@ resource "linode_instance" "cluster-worker" {
   label           = "cluster-worker"
   image           = "linode/debian10"
   region          = "eu-central"
-  type            = "g6-standard-2"
+  type            = "g6-standard-4"
   authorized_keys = [data.linode_sshkey.default.ssh_key]
   depends_on      = [ linode_instance.cluster-manager ]
 
