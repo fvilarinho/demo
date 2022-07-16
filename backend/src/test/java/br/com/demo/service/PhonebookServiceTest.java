@@ -72,6 +72,7 @@ class PhonebookServiceTest{
     }
     
     // Find a phonebook by name.
+    /*
     @Test
     void findByName(){
         Mockito.when(persistence.findByName("Luke Skywalker")).thenReturn(mockList);
@@ -86,7 +87,8 @@ class PhonebookServiceTest{
     
         Assertions.assertNull(list);
     }
-    
+    */
+
     // Find a phonebook that contains a part of a name.
     @Test
     void findByNameContaining(){
