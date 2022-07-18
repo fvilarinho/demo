@@ -13,7 +13,7 @@ sonarqube {
 		property "sonar.organization", System.getenv("SONAR_ORGANIZATION")
 		property "sonar.projectKey", System.getenv("SONAR_PROJECT_KEY")
 		property "sonar.host.url", System.getenv("SONAR_URL")
-		property "sonar.sources", "src/main/java,src/main/webapp,src/main/resources/static"
+		property "sonar.sources", "src/main/java,src/main/webapp,src/main/resources/static/js"
 		property 'sonar.exclusions', ["**/ServletInitializer*", "**/DemoApplication*"]
 		property 'sonar.coverage.exclusions', ["**/ServletInitializer*", "**/DemoApplication*"]
 	}

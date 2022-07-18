@@ -86,7 +86,7 @@ class PhonebookServiceTest{
     
         Assertions.assertNull(list);
     }
-    
+
     // Find a phonebook that contains a part of a name.
     @Test
     void findByNameContaining(){
