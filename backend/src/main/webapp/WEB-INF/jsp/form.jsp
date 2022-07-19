@@ -28,6 +28,7 @@
             </div>
         </div>
         <jsp:include page="inputHandler.jsp"/>
+        <jsp:include page="rum.jsp"/>
     </form>
 </div>
 </body>

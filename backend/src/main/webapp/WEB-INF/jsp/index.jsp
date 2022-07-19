@@ -15,5 +15,6 @@
         <br/>
         <small id="messageHelp" class="form-text text-muted">${message}</small>
     </div>
+    <jsp:include page="rum.jsp"/>
 </body>
 </html>
