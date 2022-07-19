@@ -1,6 +1,6 @@
 <script
         src="https://www.datadoghq-browser-agent.com/datadog-rum-v4.js"
-        type="text/javascript">
+        type="text/javascript" >
 </script>
 <script>
     window.DD_RUM && window.DD_RUM.init({
